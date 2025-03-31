@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIC MODS</title>
+    <link rel="icon" type="png" href="ASSETS/logo.png">
+</head>
+<body>
+    <header id="header">
+        <h1>CLASSIC M<img src="ASSETS/logo.png" alt="logo" width="100" height="100px" style="border-radius: 500px; box-shadow: none; position: relative; top: 5px;">DS</h1>
+        <p id="paragraph">Here you can find some CLASSIC byte sized applications and Games just build for fun! <br> You do not have to download any of these and they are totally free for you!</p>
+    </header>
+    
+    
+    <div>
+        <img src="" alt="">
+        <img src="ASSETS/cloud.png" id="weatherImg" alt="applications" height="600px" width="400px">
+        <label id="weather">WEATHER APPLICATION</label>
+        <img src="ASSETS/rockpaper.png" id="rockImg" alt="game" height="600px" width="400px">
+        <label id="rock">ROCK-PAPER... GAME</label>
+        <img src="ASSETS/snake.png" alt="game" id="snakeImg" height="600px" width="400px">
+        <label id="snake">CLASSIC SNAKE GAME</label>
+        <img src="ASSETS/pong.png" alt="game" id="pongImg" height="600px" width="400px">
+        <label id="pong">C<span class="span">L</span>ASSIC PING PONG GAME</label>
+        <img src="ASSETS/xox.png" alt="game" id="xoxImg" height="600px" width="400px">
+        <label id="xox">MULTIPLAYER XOX GAME</label>
+    </div><br>
+
+    <div id="tableDiv">
+        <h2>APPLICATIONS</h2>
+        <table id="table">
+            <tr>
+                <th>NAME</th>
+                <th>LINK</th>
+            </tr>
+            <tr>
+                <td>• Weather Application</td>
+                <td class="secondcol"><a href="ASSETS/project 10/index.html">WeatherApp.js</a></td>
+            </tr>
+            <tr>
+                <td>• Pokemon Application</td>
+                <td class="secondcol"><a href="ASSETS/project 9/index.html">PokeFetche.js</a></td>
+            </tr>
+            <tr>
+                <td>• Rock-Paper-Scissors</td>
+                <td class="secondcol"><a href="ASSETS/project 6/index.html">AIRockGame.js</a></td>
+            </tr>
+            <tr>
+                <td>• Snake simulator app</td>
+                <td class="secondcol"><a href="ASSETS/project 12/index.html">SnakeSimul.js</a></td>
+            </tr>
+            <tr>
+                <td>• Old Style Ping Pong</td>
+                <td class="secondcol"><a href="ASSETS/project 13/index.html">PongSimula.js</a></td></td>
+            </tr>
+            <tr>
+                <td>• Multiplayer XOX App</td>
+                <td class="secondcol"><a href="ASSETS/project 11/index.html">XOXsimulat.js</a></td>
+            </tr>
+            <tr>
+                <td>• Thinking Calculator</td>
+                <td class="secondcol"><a href="ASSETS/project 1/index.html">Classic Calc.js</a></td>
+            </tr>
+            <tr>
+                <td>• Intrests Calculator</td>
+                <td class="secondcol"><a href="ASSETS/project 2/index.html">Intrest Calc.js</a></td>
+            </tr>
+        </table>
+        <ul>
+            <li>🎮 Interactive and fun games 🎮</li>
+            <li>🖥️ Perfect for quick breaks 🖥️</li>
+            <li>🌐 No downloads required 🌐</li>
+        </ul>
+        <label id="time">00 : 00 : 00</label><br><br>
+        
+    </div>
+    <footer>&copy; 2025 Classic Mods. All rights reserved. Author Kodagodage Yashodh Roshana</footer>
+
+    <script>
+        const weatherImg = document.getElementById('weatherImg');
+        const weather = document.getElementById('weather');
+
+        const rockImg = document.getElementById('rockImg');
+        const rock = document.getElementById('rock');
+
+        const snakeImg = document.getElementById('snakeImg');
+        const snake = document.getElementById('snake');
+
+        const pongImg = document.getElementById('pongImg');
+        const pong = document.getElementById('pong');
+
+        const xoxImg = document.getElementById('xoxImg');
+        const xox = document.getElementById('xox');
+        const paragraph = document.getElementById('paragraph');
+        const header = document.getElementById('header')
+        const time = document.getElementById("time")
+        const table = document.getElementById("table")
+
+
+        weatherImg.addEventListener('mouseover', weatherOver);
+        function weatherOver(event){
+            weather.style.visibility = 'visible';
+            weatherImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            weatherImg.style.width = '600px';
+            weatherImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        }
+
+        weatherImg.addEventListener('mouseout', weatherOut);
+        function weatherOut(event){
+            weather.style.visibility = 'hidden';
+            weatherImg.style.boxShadow = '5px 5px 5px black';
+            weatherImg.style.width = '400px';
+            weatherImg.style.height = '600px';
+            header.style.paddingBottom = '150px';
+        }
+
+        rockImg.addEventListener('mouseover', rockOver)
+        function rockOver(event){
+            rock.style.visibility = 'visible';
+            rockImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            rockImg.style.width = '600px';
+            rockImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        };
+
+        rockImg.addEventListener('mouseout', rockOut)
+        function rockOut(event){
+            rock.style.visibility = 'hidden';
+            rockImg.style.boxShadow = '5px 5px 5px black';
+            rockImg.style.width = '400px';
+            rockImg.style.height = '600px';
+            header.style.paddingBottom = '150px' 
+        };
+
+        snakeImg.addEventListener('mouseover', snakeOver)
+        function snakeOver(event){
+            snake.style.visibility = 'visible';
+            snakeImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            snakeImg.style.width = '600px';
+            snakeImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        };
+
+        snakeImg.addEventListener('mouseout', snakeOut)
+        function snakeOut(event){
+            snake.style.visibility = 'hidden';
+            snakeImg.style.boxShadow = '5px 5px 5px black';
+            snakeImg.style.width = '400px';
+            snakeImg.style.height = '600px';
+            header.style.paddingBottom = '150px' 
+        };
+
+        pongImg.addEventListener('mouseover', pongOver)
+        function pongOver(event){
+            pong.style.visibility = 'visible';
+            pongImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            pongImg.style.width = '600px';
+            pongImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        };
+
+        pongImg.addEventListener('mouseout', pongOut)
+        function pongOut(event){
+            pong.style.visibility = 'hidden';
+            pongImg.style.boxShadow = '5px 5px 5px black';
+            pongImg.style.width = '400px';
+            pongImg.style.height = '600px';
+            header.style.paddingBottom = '150px' 
+        };
+
+        xoxImg.addEventListener('mouseover', xoxOver)
+        function xoxOver(event){
+            xox.style.visibility = 'visible';
+            xoxImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            xoxImg.style.width = '600px';
+            xoxImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        };
+
+        xoxImg.addEventListener('mouseout', xoxOut)
+        function xoxOut(event){
+            xox.style.visibility = 'hidden';
+            xoxImg.style.boxShadow = '5px 5px 5px black';
+            xoxImg.style.width = '400px';
+            xoxImg.style.height = '600px';
+            header.style.paddingBottom = '150px' 
+        };
+
+        weather.addEventListener('mouseover', event => {
+            weather.style.visibility = 'visible';
+            weatherImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            weatherImg.style.width = '600px';
+            weatherImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        });
+
+        weather.addEventListener('mouseout', event => {
+            weather.style.visibility = 'hidden';
+            weatherImg.style.boxShadow = '5px 5px 5px black';
+            weatherImg.style.width = '400px';
+            weatherImg.style.height = '600px'
+            header.style.paddingBottom = '150px'; 
+        });
+
+        rock.addEventListener('mouseover', event => {
+            rock.style.visibility = 'visible';
+            rockImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            rockImg.style.width = '600px';
+            rockImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        });
+
+        rock.addEventListener('mouseout', event => {
+            rock.style.visibility = 'hidden';
+            rockImg.style.boxShadow = '5px 5px 5px black';
+            rockImg.style.width = '400px';
+            rockImg.style.height = '600px'
+            header.style.paddingBottom = '150px'; 
+        });
+
+        snake.addEventListener('mouseover', event => {
+            snake.style.visibility = 'visible';
+            snakeImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            snakeImg.style.width = '600px';
+            snakeImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        });
+
+        snake.addEventListener('mouseout', event => {
+            snake.style.visibility = 'hidden';
+            snakeImg.style.boxShadow = '5px 5px 5px black';
+            snakeImg.style.width = '400px';
+            snakeImg.style.height = '600px'
+            header.style.paddingBottom = '150px'; 
+        });
+
+        pong.addEventListener('mouseover', event => {
+            pong.style.visibility = 'visible';
+            pongImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            pongImg.style.width = '600px';
+            pongImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        });
+
+        pong.addEventListener('mouseout', event => {
+            pong.style.visibility = 'hidden';
+            pongImg.style.boxShadow = '5px 5px 5px black';
+            pongImg.style.width = '400px';
+            pongImg.style.height = '600px'
+            header.style.paddingBottom = '150px'; 
+        });
+
+        xox.addEventListener('mouseover', event => {
+            xox.style.visibility = 'visible';
+            xoxImg.style.boxShadow = '10px 10px 5px rgb(146, 0, 0)';
+            xoxImg.style.width = '600px';
+            xoxImg.style.height = '800px';
+            header.style.paddingBottom = '0px'; 
+        });
+
+        xox.addEventListener('mouseout', event => {
+            xox.style.visibility = 'hidden';
+            xoxImg.style.boxShadow = '5px 5px 5px black';
+            xoxImg.style.width = '400px';
+            xoxImg.style.height = '600px'
+            header.style.paddingBottom = '150px'; 
+        });
+
+
+
+        weatherImg.onclick = () => window.open("ASSETS/project 10/index.html", "_blank");
+        weather.onclick = () => window.open("ASSETS/project 10/index.html", "_blank");
+        rockImg.onclick = () => window.open("ASSETS/project 6/index.html", "_blank");
+        rock.onclick = () => window.open("ASSETS/project 6/index.html", "_blank");
+        snakeImg.onclick = () => window.open("ASSETS/project 12/index.html", "_blank");
+        snake.onclick = () => window.open("ASSETS/project 12/index.html", "_blank");
+        pongImg.onclick = () => window.open("ASSETS/project 13/index.html", "_blank");
+        pong.onclick = () => window.open("ASSETS/project 13/index.html", "_blank");
+        xoxImg.onclick = () => window.open("ASSETS/project 11/index.html", "_blank");
+        xox.onclick = () => window.open("ASSETS/project 11/index.html", "_blank");
+
+        if(window.innerWidth < 1000){
+            weatherImg.removeEventListener('mouseover', weatherOver)
+            rockImg.removeEventListener('mouseover', rockOver)
+            snakeImg.removeEventListener('mouseover', snakeOver)
+            pongImg.removeEventListener('mouseover', pongOver)
+            xoxImg.removeEventListener('mouseover', xoxOver)
+            weatherImg.removeEventListener('mouseover', weatherOut)
+            rockImg.removeEventListener('mouseover', rockOut)
+            snakeImg.removeEventListener('mouseover', snakeOut)
+            pongImg.removeEventListener('mouseover', pongOut)
+            xoxImg.removeEventListener('mouseover', xoxOut)
+            paragraph.style.position = 'static'
+            table.style.width = "90%"
+        }
+        else{
+            console.log('0')
+        }
+
+        setInterval(updateTime, 1000)
+        window.addEventListener('resize', checkWidth)
+        function updateTime(){
+            let currentDate = new Date();
+            let hours = currentDate.getHours();
+            let minutes = currentDate.getMinutes();
+            let seconds = currentDate.getSeconds();
+            time.textContent = `${hours.toString().padStart(2, 0)} : ${minutes.toString().padStart(2, 0)} : ${seconds.toString().padStart(2, 0)}`
+        }
+        function checkWidth(){   
+            if(window.innerWidth < 1000){
+                weatherImg.removeEventListener('mouseover', weatherOver)
+                rockImg.removeEventListener('mouseover', rockOver)
+                snakeImg.removeEventListener('mouseover', snakeOver)
+                pongImg.removeEventListener('mouseover', pongOver)
+                xoxImg.removeEventListener('mouseover', xoxOver)
+                weatherImg.removeEventListener('mouseover', weatherOut)
+                rockImg.removeEventListener('mouseover', rockOut)
+                snakeImg.removeEventListener('mouseover', snakeOut)
+                pongImg.removeEventListener('mouseover', pongOut)
+                xoxImg.removeEventListener('mouseover', xoxOut)
+                paragraph.style.position = 'static'
+                table.style.width = "90%"
+            }
+            else{
+                location.reload()
+            }
+        }
+    </script>
+    <style>
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;    
+            text-align: center;
+            height: 96.5vh;
+            background: radial-gradient(circle, red, black);
+            background-image: url("ASSETS/logo.png");
+            background-size: cover;
+            zoom: 0.5;
+        }
+        label{
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #ff0000;
+            position: absolute;
+        } 
+        button{
+            height: 50px;
+            font-weight: 900;
+            font-family: cursive;
+            border-radius:5px;
+            transition: all 0.5s;
+            color: #111111;
+            background-color: rgba(255, 0, 0, 0.336);
+            cursor: crosshair;
+        }
+        button:hover{
+            background-color: rgba(255, 0, 0, 0.904);
+        }
+        h1{
+            color: rgb(104, 5, 5);
+            font-weight: 900;
+            font-size: 3em;
+        }
+        h2{
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.5em;
+        }
+        p{
+            position: absolute;
+            top: 270px;
+            left: 530px;
+            color: rgb(255, 226, 226);
+            font-weight: 900;
+            z-index: -1;
+        }
+        p::first-letter{
+            color: rgb(255, 255, 255);
+            font-size: larger;
+        }
+        img{
+            border-radius: 20px;
+            box-shadow: 10px 10px 5px black;
+            transition: all 0.5s;
+        }
+        #weather{
+            top: 750px;
+            left: 175px;
+            visibility: hidden;
+        }
+        #rock{
+            top: 750px;
+            left: 620px;
+            visibility: hidden;
+        }
+        #snake{
+            top: 750px;
+            left: 1028px;
+            visibility: hidden;
+        }
+        #pong{
+            top: 750px;
+            left: 1400px;
+            color: aliceblue;
+            visibility: hidden;
+        }#pong::first-letter{color: rgb(255, 0, 0);}
+        #xox{
+            top: 750px;
+            left: 1810px;
+            color: rgb(245, 245, 245);
+            visibility: hidden;
+        }
+        #bodypart{
+            transition: all 1s;
+        }
+        .watermark{
+            z-index: -1;
+        }
+        .span{
+            color: rgb(0, 0, 0);
+        }
+        #header{
+            padding-bottom: 150px;
+            transition: all 1s;
+        }
+        #table{
+            border: 10px solid #111111;
+            width: 1500px;
+            height: auto;
+            margin: 0 auto;
+            color: #ff0000;
+            background-color: #a7000054;
+            padding-bottom: 50px;
+        }
+        th, td{
+            border: 5px solid #ff000080;
+            text-align: left;
+        }
+        th{
+            color: #e0e0e0;
+            padding: 5px;
+            text-align: center;
+            height: 100px;
+        }
+        td{
+            padding: 20px;
+            font-size: 0.8em;
+            padding-left: 20px;
+            color: rgb(151, 255, 255);
+        }
+        a{
+            transition: all 0.4s;
+            cursor: pointer;
+            color: rgb(129, 196, 255);
+        }a:hover{color: aqua;}
+        #tableDiv{
+            padding-bottom: 50px;
+        }
+        .secondcol{
+            font-size: 0.8em;
+            text-align: center;
+        }
+        #time{
+            position: relative;
+            padding-top: 50px;
+            color: white;
+            font-weight: 500;
+        }
+        footer{
+            display: block;
+            background-color: #5e0000c7;
+            color: whitesmoke;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 20px;
+            text-align: center;
+            bottom: 0;
+        }
+        li{
+            color: rgb(255, 195, 195);
+            font-family: cursive;
+            font-weight: 900;
+        }
+        ul{
+            list-style-type: none;
+        }
+    </style>
+</body>
+</html>

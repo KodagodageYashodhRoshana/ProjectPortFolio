@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>META 4</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameBoard" width="500" height="500"></canvas><br>
+        <label id="scoreLbl">0</label><br>
+        <button id="restart"><label id="multiScoreLbl">0 : 0</label></button><button id="stop">💥</button>
+    </div>
+    <script>
+        const gameBoard = document.getElementById('gameBoard')
+        const scoreText = document.getElementById('scoreLbl')
+        const resetBtn = document.getElementById('restart')
+
+        const ctx = gameBoard.getContext('2d')
+        const gameHeight = gameBoard.height
+        const gameWidth = gameBoard.width
+
+        const paddleOneColor ='rgb(29, 29, 29)'
+        const paddleTwoColor ='rgb(150, 13, 13)'
+        const boardBackground = 'rgba(104, 103, 103, 0.61)'
+        const paddleBorder = '#000000'
+        const paddleSpeed = 25
+        const ballColor = 'rgb(255, 38, 0)'
+        const ballRadius = 12.5
+        const milSPD = 10
+
+        let running = true
+        let over = 0;
+        let maxove = 10
+        let intervalId;
+        let ballSpeed = 1;
+        let scoreManual = 0
+        let player1score = 0
+        let player2score = 0
+        let ballXdirection = 0
+        let ballYdirection = 0
+        let ballX = gameWidth / 2
+        let ballY = gameHeight / 2
+
+        let paddle1 = {
+            width: 12.5,
+            height: 100,
+            x: 0,
+            y: 0
+        }
+        let paddle2 = {
+            width: 12.5,
+            height: 100,
+            x: gameWidth - 12.5,
+            y: gameHeight - 100
+        }
+
+        document.addEventListener('keydown', changeDirection);
+        resetBtn.onclick = resetGame
+
+        if(running){
+        gameStart() 
+        }
+
+        function gameStart(){
+            createBall()
+            nextTick()
+        }
+        function nextTick(){
+            intervalId = setTimeout(() => {
+                clearBoard()
+                drawPaddles()
+                moveBall()
+                drawBall(ballX, ballY)
+                checkCollision()
+                if(running){
+                    nextTick()   
+                }
+                else{
+                    clearInterval(intervalId)
+                    checkOver()
+                }
+                
+            }, milSPD);
+        }
+        function clearBoard(){
+            ctx.fillStyle = boardBackground
+            ctx.fillRect(0, 0, gameWidth, gameHeight)
+        }
+        function drawPaddles(){
+            ctx.strokeStyle = paddleBorder
+
+            ctx.fillStyle = paddleOneColor
+            ctx.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height)
+            ctx.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height)
+
+            ctx.fillStyle = paddleTwoColor
+            ctx.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
+            ctx.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height)
+        }
+        function createBall(){
+            ballSpeed = 1
+
+
+            if(Math.round(Math.random()) == 1){
+                ballXdirection = 1;
+                
+            }
+            else{
+                ballXdirection = -1
+            }
+            
+            if(Math.round(Math.random()) == 1){
+                ballYdirection = 1;
+                    
+            }
+            else{
+                ballYdirection = -1
+            }
+
+            ballX = gameWidth / 2
+            ballY = gameHeight / 2
+
+            drawBall(ballX, ballY)
+        }
+        function moveBall(){
+            ballX += (ballSpeed * ballXdirection)
+            ballY += (ballSpeed * ballYdirection)
+        }
+        function drawBall(ballX, ballY){
+            ctx.fillStyle = ballColor
+            ctx.beginPath()
+            ctx.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI)
+            ctx.fill()
+        }
+        function checkCollision(){
+            if(ballY <= 0 + ballRadius){
+                ballYdirection *= -1
+            }
+            if(ballY >= gameHeight - ballRadius){
+                ballYdirection *= -1
+            }
+
+            if(ballX >= gameWidth - ballRadius){
+                scoreManual -= 1
+                player1score += 1
+                updateScore()
+                createBall()
+                ballXdirection *= -1
+                over += 1;
+                checkOver()
+            }    
+
+            if(ballX <= 0 + ballRadius){
+                scoreManual -= 1
+                player2score += 1
+                updateScore()
+                createBall()
+                ballXdirection *= -1
+                over += 1;
+                checkOver()
+            }
+
+
+            if(ballX <= (paddle1.x + paddle1.width + ballRadius)){
+                if (ballY > paddle1.y && ballY < paddle1.y + paddle1.height) {
+                    ballX = (paddle1.x + paddle1.width) + ballRadius
+                    ballXdirection *= -1
+                    ballXdirection += (Math.random() - 0.5) * 2
+                    ballSpeed += 0.01
+                    scoreManual += 1
+                    updateScore()
+                }
+            }
+
+            if(ballX >= (paddle2.x - ballRadius)){
+                if (ballY > paddle2.y && ballY < paddle2.y + paddle2.height) {
+                    ballX = paddle2.x - ballRadius
+                    ballXdirection *= -1
+                    ballXdirection += (Math.random() - 0.5) * 2
+                    ballSpeed += 0.01
+                    scoreManual += 1
+                    updateScore()
+                }
+            }
+        }
+        function changeDirection(event) {
+            const keyPressed = event.keyCode;
+            const paddle1Up = 87;
+            const paddle1Down = 83;
+            const paddle2Up = 38;
+            const paddle2Down = 40;
+
+            switch (keyPressed) {
+                case paddle1Up:
+                    if (paddle1.y > 0) {
+                        paddle1.y -= paddleSpeed;
+                    }
+                    break; // Add break here
+
+                case paddle1Down:
+                    if (paddle1.y < gameHeight - paddle1.height) {
+                        paddle1.y += paddleSpeed;
+                    }
+                    break; // Add break here
+
+                case paddle2Up:
+                    if (paddle2.y > 0) {
+                        paddle2.y -= paddleSpeed;
+                    }
+                    break; // Add break here
+
+                case paddle2Down:
+                    if (paddle2.y < gameHeight - paddle2.height) {
+                        paddle2.y += paddleSpeed;
+                    }
+                    break; // Add break here
+            }
+        }
+        function updateScore(){
+            if(scoreManual < 0){
+                scoreManual = 0
+            }
+            scoreText.textContent = `${scoreManual}`
+            document.getElementById('multiScoreLbl').textContent = `${player1score} : ${player2score}`
+        }
+        function checkOver(){
+            console.log(maxove)
+            console.log(over)
+            if(over >= maxove){
+                running = false
+                clearBoard();
+                ctx.fillStyle = 'black';
+                ctx.font = '50px cursive';
+                ctx.textAlign = 'center';
+                ctx.fillText('GAME OVER', gameWidth / 2, (gameHeight / 2) - 50);
+                ctx.fillText(`${scoreManual.toString().padStart(2, '0')}`, gameWidth / 2, gameHeight / 2);
+                ctx.font = '25px cursive'
+                ctx.fillText(`${(player1score > player2score) ? 'BLACK WINS' : 'RED WINS'}`, gameWidth / 2, (gameHeight / 2) + 60);
+            
+            }
+        }
+
+        function resetGame(){location.reload()}
+        document.getElementById('stop').onclick = ()=> (clearInterval(intervalId))
+
+    </script>
+</body>
+</html>

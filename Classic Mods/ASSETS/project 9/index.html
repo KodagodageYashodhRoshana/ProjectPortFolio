@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>META 4</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="container">
+        <div><input type="text" id="pokemonName"> 
+            <button id="fetchBtn">FETCH</button><br>
+        </div>
+        
+        <div class="info">
+            <img src="" alt="pokemonimage" id="pokemonSprite" style="display:none"> 
+            <label for="pokemonSprite" id="code">00</label>
+        </div>
+    </div>
+    <script> 
+        async function fetchData(){
+            try{
+                const pokemonName = document.getElementById('pokemonName').value.toLowerCase()
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+                if(!response.ok){
+                    throw new Error('not found')
+                }
+                const data = await response.json()
+                const sprite = data.sprites.front_default
+                const imageElement = document.getElementById('pokemonSprite')
+                document.getElementById('code').textContent = `Lofty:${data.height}in | ID:${data.id} | Heavy:${data.weight}kg`
+                imageElement.src = `${sprite}`
+                imageElement.style.display = 'block'
+                
+            
+            }
+
+            catch(error){
+                console.error(error)
+            }
+        }
+
+        document.getElementById('fetchBtn').onclick = () => fetchData()
+    </script>
+</body>
+</html>

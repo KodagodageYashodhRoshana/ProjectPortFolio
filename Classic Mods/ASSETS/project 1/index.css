@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+    align-items: center;
+    background: radial-gradient(circle, rgb(0, 0, 0), rgb(170, 0, 0));
+    background-size: cover;
+    color: #FF0000;
+    font: 900 3.8rem 'Consolas'
+}
+
+#container, #display, div {
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#container, #display {
+    width: 400px; /* Increased width */
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px red;
+    transition: 0.5s;
+}
+
+#container:hover {
+    box-shadow: -10px -10px 20px red;
+    cursor: pointer;
+}
+
+#display {
+    font-size: 2rem;
+    margin-top: 5px;
+    width: 90%;
+    color: #FF0000;
+    font-family: Consolas;
+    font-weight: 900;
+    text-align: center;
+}
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+div {
+    font-size: 3.8rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: rgba(255, 0, 0, 0.863);
+    background-color: #111111;
+    font-weight: 900;
+    cursor: pointer;
+    width: 69.9px;
+    height:69.9px;
+    border-radius: 100px;
+}
+
+#think {
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #050505;
+}
+
+button:active{
+    background-color: black;
+}
+
+.ops {
+    background-color: rgb(160, 160, 160);
+}
+

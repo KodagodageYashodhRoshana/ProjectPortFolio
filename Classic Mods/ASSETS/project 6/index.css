@@ -1,0 +1,77 @@
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;    
+    text-align: center;
+    padding: 2.5px;
+    background: radial-gradient(circle, #ffffff, #4e4e4e);
+}
+div{
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 35px;
+    text-align: center;
+    padding: 10px;
+}
+#buttons{
+    background-color: hsl(0, 0%, 70%);
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 2.5px 2.5px 2.5px grey;
+}
+h1{
+    text-align: center;
+    background-color: #111111;
+}
+label{
+    text-align: center;
+    font-size: 2.3rem;
+    color: hsl(0, 0%, 20%);
+}
+button{
+    text-align: center;
+    font-size: 4rem;
+    width: 95px;
+    height: 95px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.5s;
+    background-color: hsl(234, 71%, 68%);
+    cursor: crosshair;
+}
+button:hover{
+    background-color: rgb(158, 255, 239);
+}
+#resultDisplay{
+    font-size: 1.9rem;
+}
+#computerDisplay{
+    font-size: 1.9rem;
+}
+#playerDisplay{
+    font-size: 1.9rem;
+    padding: 0px;
+}
+#mainContainer{
+    margin: 0 auto;
+    box-shadow: 2.5px 2.5px 2.5px rgb(175, 175, 175);
+    width: 500px;
+}
+#go{
+    font-size: 1rem;
+    width: 25px;
+    height: 25px;
+}
+#winers{
+    font-size: 1.5rem;
+    color: rgb(0, 255, 34);
+}
+.blueText{
+    color: rgb(0, 17, 255); 
+}
+.greenText, #playerScore{
+    color: rgb(81, 255, 0);
+}
+.redText, #compuScore{
+    color: rgb(255, 38, 0);
+}

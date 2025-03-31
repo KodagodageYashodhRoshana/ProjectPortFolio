@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>META 4</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="entryContainer">
+        <input type="text" class="cityInput" id="cityInput" placeholder="ENTER CITY">
+        <button class="getBtn" id="getBtn" type="submit">GET</button>
+    </div><br>
+
+    <form class="infoContainer">
+
+    </form>
+
+    <script>
+        const Apikey = 'e583bb77ed1488e5cab6995bec32aaa7'
+        const cityInput = document.getElementById('cityInput')
+        const submitBtn = document.getElementById('getBtn')
+        const weatherInputDiv = document.querySelector('.entryContainer')
+        const card = document.querySelector('.infoContainer')
+        const errorDisplay = document.createElement('label')
+        let weatherEmoji = null;
+
+
+        submitBtn.addEventListener('click', async event=>{
+            event.preventDefault()
+            const city = cityInput.value
+
+            if(city){  
+                if(card.contains(errorDisplay)){
+                    card.removeChild(errorDisplay)
+                    card.style.visibility = 'hidden'
+                }     
+                try{
+                    const weatherData = await getWeather(city)
+                    displayWeatherInfo(weatherData)
+                }
+                catch(error){
+                    console.error(error)
+                    displayError(error)
+                }
+
+                
+
+            }
+            else{
+                displayError("Please Enter A City")
+            }
+
+        })
+
+        async function getWeather(city){
+            const ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${Apikey}`
+            const response = await fetch(ApiUrl);
+            
+            if (!response.ok){
+                throw new Error('Not Found 404')
+            }
+            
+            else{
+                return response.json();
+            }
+
+        }
+
+        function displayWeatherInfo(data){
+            const {name: city, 
+                main: {temp, humidity},
+                weather: [{description, id}]} = data;
+
+            card.textContent = ''
+            card.style.visibility = 'visible'
+
+
+            const cityDisplay = document.createElement('label')
+            cityDisplay.classList.add('cityLabel')
+            cityDisplay.textContent = `${city}`
+
+            const tempDisplay = document.createElement('label')
+            tempDisplay.classList.add('tempLabel')
+            tempDisplay.textContent = `${((temp - 273.15) * 9 / 5 + 32).toFixed(0)}°F`
+
+            const humidDisplay = document.createElement('label')
+            humidDisplay.classList.add('humidLabel')
+            humidDisplay.textContent = `Humidity:${humidity}%`
+
+            const descLabel = document.createElement('label')
+            descLabel.classList.add('descriptionLabel')
+            descLabel.textContent = `${description}`
+
+            weatherEmoji = document.createElement('label')
+            weatherEmoji.classList.add('emojiLabel')
+            weatherEmoji.textContent = `${getWeatherEmoji(id)}`
+
+
+
+
+            card.appendChild(cityDisplay)
+            card.appendChild(tempDisplay)
+            card.appendChild(humidDisplay)
+            card.appendChild(descLabel)
+            card.appendChild(weatherEmoji)
+
+        }
+
+        function getWeatherEmoji(weatherId){
+            switch(true){
+                case (weatherId >= 200 && weatherId < 300):
+                    return "⛈";
+                case (weatherId >= 300 && weatherId < 400):
+                    return "🌧";
+                case (weatherId >= 500 && weatherId < 600):
+                    return "🌧";
+                case (weatherId >= 600 && weatherId < 700):
+                    return "❄";
+                case (weatherId >= 700 && weatherId < 800):
+                    return "🌫";
+                case (weatherId === 800):
+                    return "🔆";
+                case (weatherId === 781):
+                    return "🌪"
+                case (weatherId >= 801 && weatherId < 810):
+                    return "☁";
+                default:
+                    return "💣";
+            }
+
+        }
+
+        function displayError(message){
+            errorDisplay.textContent = `${message}`
+            errorDisplay.classList.add('issueLabel')
+            weatherEmoji.style.paddingBottom = '25px'
+            card.textContent = ''
+            card.style.visibility = 'visible'
+            card.appendChild(errorDisplay)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+    text-align: center;
+    font-family: 'Consolas', sans-serif;
+    font-weight: 1000;
+    background: linear-gradient(to bottom, rgb(0, 195, 255), rgb(255, 136, 0));
+    font-size: 1.5rem;
+    zoom: 1.0595;
+}
+input{
+    font-size: 1.7rem;
+    font-family: 'Consolas', sans-serif;
+    font-weight: 1000;
+    color: #333;
+    text-align: center;
+    border-radius: 30px;
+    background-color: hsla(170, 100%, 50%, 0.356);
+    padding: 10px;
+    border: none;
+    transition: all 0.5s;
+}
+input:hover{
+    background-color: rgb(158, 255, 239);
+
+}
+.cityInput{
+    margin: 5px;
+    width: 250px;
+}
+button{
+    color: #808080;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.44rem;
+    font-weight: 1000;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    transition: all 0.5s;
+    background-color: hsla(170, 100%, 50%, 0.356);
+    cursor: crosshair;
+    border: none;
+}
+button:hover{
+    background-color: rgb(158, 255, 239);
+}
+
+.entryContainer{
+    margin-bottom: 25px;
+    background-color: #d3d2d21e;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 17, 255, 0.267);
+    display: block;
+    margin: 0 auto;
+    border-radius:10px;
+    width: 400px;
+}
+
+.infoContainer{
+    padding-top: 15px;
+    background-color: #d3d2d21e;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 17, 255, 0.267);
+    padding-bottom: 15px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00ffdd, #feb47b);
+    width: 400px;
+    visibility: hidden;
+}
+
+label{
+    display: block;
+    text-align: center;
+    font-size: 1.9em;    
+    font-weight: bolder;
+    color: #333;
+    font-family: 'Arial' sans-serif;
+    background-color: #0a0a0a00;
+    padding-bottom: 25px;
+}
+.cityLabel{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+}
+.humidLabel{
+    font-style: italic;
+    padding-top: 10px;
+    font-size: 1em;
+    padding-bottom: 35px;
+}
+.descriptionLabel{
+    font-style: italic;
+    font-size: 1.5em;
+    padding-bottom: 0px;
+}
+.emojiLabel{
+    padding-bottom: 40px;
+    font-size: 4.5em;
+    font-family: 'Segoe UI Emoji';
+}
+.issueLabel{
+    font-size: 0.8rem;
+    padding-bottom: 0px;
+}
+.tempLabel{
+    color: #333;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>META 4</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <form id="mainForm"><br>
+        <h1>•INTEREST CALCULATOR•</h1>
+        <div id="div1">
+            <label for="principal">• S Amount : </label>
+            <input type="number" id="principal" placeholder="$"><br><br>
+        </div>
+
+        <div id="div2">
+            <label for="interest">• Interest :  </label>
+            <input type="number" id="interest" placeholder="%"><br><br>
+        </div>
+
+        <div id="div3">
+            <label for="time">• Years Nu : </label>
+            <input type="number" id="time" placeholder="🕰"><br><br>
+        </div>
+
+        <button type="button" class="button" onclick="calculateInterest()">SUBMIT</button>
+
+        <label id="totalAmount" class="totalAmount">TOTAL = $0.00</label><br><br>
+    </form>
+
+    <script>
+        function calculateInterest() {
+            const principalu = document.getElementById("principal");
+            const rateu = document.getElementById("interest");
+            const yearsu = document.getElementById("time");
+            const label = document.getElementById("totalAmount");
+            let total = 0;
+            let principal = Number(principalu.value);
+            let rate = Number(rateu.value) / 100;
+            let years = Number(yearsu.value);
+
+            if (principal) {
+                total = principal * Math.pow(1 + rate, years);
+                label.textContent = `TOTAL = $${total.toFixed(2)}`;
+            } else {
+                label.textContent = "FILL IN PLEASE";
+            }
+        }
+    </script>
+</body>
+</html>

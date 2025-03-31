@@ -1,0 +1,80 @@
+body{
+    font-size: 1em;
+    font-family: Consolas;
+    background-color: #111111;
+    font-weight: bold;
+    text-align: center;
+}
+
+div{
+    width: fit-content;
+    display: block;
+    text-align: center;
+}
+
+
+label, input{
+    text-align: center;
+    font-size: 1.4em;    
+    font-family: Consolas;
+    font-weight: bold;
+    background-color: #0a0a0a;
+    color: darkred;
+}
+
+
+.totalAmount{
+    font-family: 'Helvetica';
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: hsl(125, 100%, 51%);
+    font-size: 1.4em;
+}
+
+h1{
+    color: hsl(0, 0%, 30%);
+    font-size: 2em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+button{
+    display: block;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 1.2em;
+    color: aliceblue;
+    background-color: hsl(125, 100%, 51%);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+    font-family: Consolas;
+    font-weight: bolder;
+}
+
+button:hover{
+    background-color: hsl(115, 100%, 32%);
+}
+
+form{
+    transition: all 662.6ms;
+    margin: 20px auto 20px auto;
+    background-color: #0a0a0a;
+    width: 400px;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 10px 10px 15px rgba(250, 3, 3, 0.808);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+form:hover{
+    cursor: crosshair;
+    box-shadow: -5px -5px 10px rgba(250, 3, 3, 0.808);
+}
+label{font-size: 1.7em;}
+input{margin-top: 20px; border: 1px solid #111111; border-radius: 5px;}
